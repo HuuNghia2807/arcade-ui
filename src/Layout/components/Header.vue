@@ -1,5 +1,10 @@
 <template>
     <div class="header">
+        <img
+            class="header__background"
+            src="../../assets/imgs/background/background-header.webp"
+            alt="background-header"
+        />
         <div class="header__content">
             <router-link to="/" class="header__logo">
                 <div class="header__logo-img">
@@ -64,7 +69,7 @@
                 </div>
                 <div class="cart">
                     <!-- <i class="pi pi-bell mr-4 p-text-secondary" v-badge="2"></i> -->
-                    <i class="pi pi-shopping-cart mr-4 p-text-secondary" v-badge="2"></i>
+                    <i class="icon__cart pi pi-shopping-cart" style="font-size: 2.5rem" v-badge="2"></i>
                 </div>
             </div>
         </div>
@@ -102,20 +107,28 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(../../assets/imgs/background/background-header.webp);
     height: 120px;
     width: 100%;
-    object-fit: cover;
-    object-position: 50% 50%;
+
+    .header__background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        object-position: 50% 50%;
+        z-index: 1;
+    }
 
     .header__content {
         width: 80%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        z-index: 2;
     }
 
     .header__logo {
@@ -170,7 +183,8 @@ export default {
         align-items: center;
         color: var(--white-color);
 
-        .login:hover,.register:hover {
+        .login:hover,
+        .register:hover {
             color: yellow;
             cursor: pointer;
         }
@@ -197,6 +211,18 @@ export default {
     .cart {
         font-size: 2.5rem;
         color: var(--white-color);
+        cursor: pointer;
+    }
+
+    .cart:hover {
+        opacity: 0.7;
+    }
+
+    :deep(.icon__cart .p-badge) {
+        font-size: 1.6rem;
+        width: 25px;
+        height: 25px;
+        line-height: 2.4rem;
     }
 }
 </style>

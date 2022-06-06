@@ -1,14 +1,16 @@
 <template>
   <div class="container">
     <HeadingHome />
+    <BestSellers />
   </div>
 </template>
 
 <script>
-import { HeadingHome } from './components'
+import { HeadingHome, BestSellers } from './components'
 export default {
   components: {
     HeadingHome,
+    BestSellers
   }
 
 }
